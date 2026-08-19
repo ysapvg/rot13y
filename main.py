@@ -3,27 +3,17 @@
 
 text = input("Tell me : ")
 
-def rot13y(text):
-    for character in text:
-        char_code = ord(character)
-        shifted_code = (char_code - 97) + 13
-        alphabet_position = shifted_code % 26
-        new_code = alphabet_position + 97
-        encoded_character = chr(new_code)
-        print(encoded_character, end="")
-
-def rot13t(text):
-    for character in text:
-        if character == " ":
-            print(" ", end="") /// spacing problem fx
+def rot13y(text): # ROT13 function
+    for character in text: # check each character from the text
+        if character == " ": # don't process spaces
+            print(" ", end="") 
         else:
-            char_code = ord(character)
-            shifted_code = (char_code - 97) + 13
-            alphabet_position = shifted_code % 26
-            new_code = alphabet_position + 97
-            encoded_character = chr(new_code)
-            print(encoded_character, end="")
+            char_code = ord(character) # get the ASCII code of the character
+            shifted_code = (char_code - 97) + 13 # shift the character by 13 positions
+            alphabet_position = shifted_code % 26 # keep the position within the alphabet
+            new_code = alphabet_position + 97 # convert the position back to ASCII
+            encoded_character = chr(new_code) # convert the ASCII code back to a character
+            print(encoded_character, end="") # print the encoded character
 
 
-# rot13y(text)
-rot13t(text)
+rot13y(text)
